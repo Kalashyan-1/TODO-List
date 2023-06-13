@@ -1,12 +1,13 @@
 #ifndef TIMECHECKERTHREAD_H
 #define TIMECHECKERTHREAD_H
 
-#include <QTimer>
 #include <QApplication>
 #include <QListWidget>
 #include <QMessageBox>
 #include <QThread>
 #include <QTime>
+#include <QTimer>
+
 class TimeCheckerThread : public QThread
 {
 public:

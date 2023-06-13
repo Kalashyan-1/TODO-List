@@ -6,7 +6,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
     , itemCount {0}
     , done {0}
-    , missed {0}
 {
     ui->setupUi(this);
     QString str = "Done: 0\n\nUndone: 0\n\n";
@@ -78,13 +77,11 @@ void MainWindow::info() {
 void MainWindow::checkTime()
 {
     QTime currentTime = QTime::currentTime();
-    qDebug() << "currentTime" <<currentTime;
     for (int i = 0; i < ui->listWidget->count(); ++i) {
         QListWidgetItem* item = ui->listWidget->item(i);
         QString timeString = item->text();
         timeString = timeString.right(5);
         QTime storedTime = QTime::fromString(timeString, "hh:mm");
-        qDebug() << "storedTime" <<storedTime;
         qDebug() << "item->background().color().name()" << item->background().color().name();
         if (storedTime.isValid() && storedTime <= currentTime && item->background() == Qt::white) {
             QString itemText = item->text();
@@ -94,9 +91,5 @@ void MainWindow::checkTime()
             item->setBackground(Qt::red);
         }
     }
-}
-
-QListWidget* MainWindow::getListWidget() const {
-    return ui->listWidget;
 }
 

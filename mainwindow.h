@@ -19,21 +19,16 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
     void info();
-    QListWidget* getListWidget() const;
 public slots:
     void checkTime();
 
 private slots:
-
     void on_pushButton_clicked();
-
     void on_DEL_clicked();
-
     void on_listWidget_currentRowChanged(int currentRow);
-
     void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
-
     void on_change_clicked();
 
 private:
@@ -41,6 +36,5 @@ private:
     int selected;
     int itemCount;
     int done;
-    int missed;
 };
 #endif // MAINWINDOW_H
